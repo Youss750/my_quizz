@@ -1,0 +1,9 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+quiz:
+  resource: "@QuizBundle/Controller/"
+  type:     annotation
+  prefix:   /
+result:
+  path: "result/{id}"
+  defaults : {_controller: QuizBundle:Quizz:result}

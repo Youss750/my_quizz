@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<form method="POST" action="/result/{{app.request.get('id')}}" name="data">
+	{% for key,quest in question %}
+	<div class="card">
+		<div class="card-content">
+			<p>{{key + 1}} : {{quest.question}}</p>
+		</div>
+		<ul class="collection">
+			{% for key, rep in quest.reponse %}
+			<div class="collection-item"><input type="radio" name="{{quest.id}}" value="{{rep.id}}" id="{{rep.id}}" require><label for="{{rep.id}}"/>{{rep.text}}</label><br></div>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endfor %}
+	<button class="btn waves-effect waves-light submite" type="submit" value"submit">Submit
+	</button>
+</form>
+{% endblock %}

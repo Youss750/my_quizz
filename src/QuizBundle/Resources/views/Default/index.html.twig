@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="g_image">
+	<div class="images">
+		<a href="/quizz/1">
+			<img src="{{ asset('categorie_img/potter.jpg') }}" width="400">
+			<div class="overlay">
+				<div class="text">Quizz Harry potter</div>
+			</div>
+		</a>
+	</div>
+	<div class="images">
+		<a href="/quizz/4">
+			<img class="image" src="{{ asset('categorie_img/culinaire.jpg') }}" width="400">
+			<div class="overlay">
+				<div class="text">Quizz Spécialité culinaire</div>
+			</div>
+		</a>
+	</div>
+	<div class="images">
+		<a href="/quizz/5">
+			<img class="image" src="{{ asset('categorie_img/simpson.jpg') }}" width="400">
+			<div class="overlay">
+				<div class="text">Quizz Simpson - Partie 1</div>
+			</div>
+		</a>
+	</div>
+	<hr>
+
+	<div class="images">
+		<a href="/quizz/6">
+			<img class="image" src="{{ asset('categorie_img/simpson.jpg') }}" width="400">
+			<div class="overlay">
+				<div class="text">Quizz Simpson - Parti 2</div>
+			</div>
+		</a>
+	</div>
+	<div class="images">
+		<a href="/quizz/10">
+			<img class="image" src="{{ asset('categorie_img/prog.jpg') }}" width="400">
+			<div class="overlay">
+				<div class="text">Quizz Programmation</div>
+			</div>
+		</a>
+	</div>
+	<div class="images">
+		<a href="/quizz/9">
+			<img class="image" src="{{ asset('categorie_img/jeux_societe.jpg') }}" width="400">
+			<div class="overlay">
+				<div class="text">Quizz jeux de societé</div>
+			</div>
+		</a>
+	</div>
+	<hr>
+	
+	<div class="images">
+		<a href="/quizz/7">
+			<img class="image" src="{{ asset('categorie_img/stargate.png') }}" width="400">
+			<div class="overlay">
+				<div class="text">Quizz Stargate</div>
+			</div>
+		</a>
+	</div>
+	<div class="images">
+		<a href="/quizz/8">
+			<img class="image" src="{{ asset('categorie_img/ncis.jpg') }}" width="400">
+			<div class="overlay">
+				<div class="text">Quizz NCIS</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+{{question.question}}
+{% endblock %}

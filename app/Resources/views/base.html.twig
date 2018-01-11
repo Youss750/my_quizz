@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/materialize.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
+</head>
+<body>
+   <div class="container">
+       <nav>
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo center">My Quizz</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="/">Accueil</a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li>{{app.user|capitalize}}</li>
+                <li><a href="{{ path('fos_user_security_logout') }}">Disconnect</a></li>
+                {% else %}
+                <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+                <li><a href="/register">Inscription</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>
+<div id="content">
+    <div class="container">
+        {% block body %}
+        {% endblock %}
+    </div>
+</div>
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

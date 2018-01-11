@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{% set count = 0 %}
+{% for key,quest in form %}
+<div class="card">
+	<div class="card-content">
+		<p> {{key + 1}} : {{quest.content}}</p>
+	</div>
+	<ul class="collection">
+		{% if quest.id_result == "vide" %}
+		<p class="false">Vous n'avez pas repondu a cette question</p><br>
+		{% endif %}
+		{% for key, rep in quest.reponses %}
+		{% if quest.id_result == rep.id and rep.id != rep.valid %}
+		<div class="collection-item false"><li for="{{rep.id}}"/>{{rep.text}}</li><br></div>
+		{% endif %}
+		{% if rep.valid == true %}
+		<div class="collection-item true"><li for="{{rep.id}}"/>{{rep.text}}</li><br></div>
+		{% endif %}
+		{% if rep.id == quest.id_result and rep.valid == true %}
+		{% set count = count + 1  %}
+		{% endif %}
+		{% if rep.id != quest.id_result  and rep.valid != true%}
+		<div class="collection-item"><li for="{{rep.id}}"/>{{rep.text}}</li><br></div>
+		{% endif %}
+		{% endfor %}
+	</ul>
+</div>
+{% endfor %}
+{{dump(count)}}
+{% endblock %}
